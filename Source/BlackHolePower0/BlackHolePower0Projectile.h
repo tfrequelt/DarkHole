@@ -39,5 +39,23 @@ public:
 	USphereComponent* GetCollisionComp() const { return CollisionComp; }
 	/** Returns ProjectileMovement subobject **/
 	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
+
+	UFUNCTION()
+	void GenerateAttraction();
+
+	virtual void BeginPlay() override;
+
+	UFUNCTION()
+	void MyTimerFunction();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float DistToExplode;
+
+	float BlackHoleLife;
+
+	FTimerHandle TimerHandle; // Handle pour le timer
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float AttractionForce;
 };
 
